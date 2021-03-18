@@ -8,13 +8,15 @@ var countSubstrings = function(s) {
         let left = 0;
         let right = s.length - 1;
         while (left < right) {
+//             faster than reverse and check
             if (s.charAt(left) !== s.charAt(right)) {
                 return false;
             }
             left++;
             right--;
         }
-        return true;    }
+        return true;
+    }
 
     let count = 0;
 
@@ -29,8 +31,6 @@ var countSubstrings = function(s) {
         }
 
         temp += s.charAt(index);
-
-
         traverse(temp, index+1);
     }
 
@@ -39,5 +39,3 @@ var countSubstrings = function(s) {
     }
     return count;
 };
-
-countSubstrings('abc')
