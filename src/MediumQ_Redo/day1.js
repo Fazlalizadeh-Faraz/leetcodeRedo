@@ -31,3 +31,31 @@ var addTwoNumbers = function(l1, l2) {
     }
     return res.next
 };
+
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLongestSubstring = function(s) {
+    let letter = new Map()
+    let longestLen =  0
+    let len = 0
+    for (let i = 0; i < s.length; i++) {
+        if(letter.get(s[i]) !== undefined && letter.get(s[i]) >= i-len){
+            len = i - letter.get(s[i])
+        }else{
+            len ++
+        }
+        letter.set(s[i], i)
+        longestLen = Math.max(longestLen, len)
+    }
+    return longestLen
+};
+
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function(s) {
+
+};
