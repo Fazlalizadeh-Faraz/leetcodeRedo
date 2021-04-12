@@ -10,22 +10,22 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
-var addTwoNumbers = function(l1, l2) {
+var addTwoNumbers = function (l1, l2) {
     let res = new ListNode()
     let cur = res;
-    let carry= 0
-    while(l1 || l2 || carry){
-        if(l1){
+    let carry = 0
+    while (l1 || l2 || carry) {
+        if (l1) {
             carry += l1.val
             l1 = l1.next
         }
-        if(l2){
+        if (l2) {
             carry += l2.val
             l2 = l2.next
         }
 
-        const lastDigit = carry %10
-        carry = Math.floor(carry /10)
+        const lastDigit = carry % 10
+        carry = Math.floor(carry / 10)
         cur.next = new ListNode(lastDigit)
         cur = cur.next
     }
@@ -36,15 +36,15 @@ var addTwoNumbers = function(l1, l2) {
  * @param {string} s
  * @return {number}
  */
-var lengthOfLongestSubstring = function(s) {
+var lengthOfLongestSubstring = function (s) {
     let letter = new Map()
-    let longestLen =  0
+    let longestLen = 0
     let len = 0
     for (let i = 0; i < s.length; i++) {
-        if(letter.get(s[i]) !== undefined && letter.get(s[i]) >= i-len){
+        if (letter.get(s[i]) !== undefined && letter.get(s[i]) >= i - len) {
             len = i - letter.get(s[i])
-        }else{
-            len ++
+        } else {
+            len++
         }
         letter.set(s[i], i)
         longestLen = Math.max(longestLen, len)
@@ -56,6 +56,30 @@ var lengthOfLongestSubstring = function(s) {
  * @param {string} s
  * @return {string}
  */
-var longestPalindrome = function(s) {
+var longestPalindrome = function (s) {
+    let result = ''
+    for (let i = 0; i < s.length; i++) {
+        let leftOdd = i
+        let rightOdd = i
+        expandCenter(leftOdd, rightOdd)
+
+        let leftEven = i
+        let rightEven = i + 1
+        expandCenter(leftEven, rightEven)
+
+    }
+
+    const expandCenter = (l, r) => {
+        while (l >= 0 && r < s.length && s[l] === s[r]) {
+            let subStr = s.substring(l, r + 1)
+            if (subStr.length > res.length) {
+                res = subStr
+            }
+            l--
+            r++
+
+        }
+    }
+    return result
 
 };
