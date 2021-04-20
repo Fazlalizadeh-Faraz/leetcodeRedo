@@ -17,3 +17,7 @@ P
  src/MediumQuestions/wordBreak.js,1\9\1908841685a3bd096aa5fb7ef4e29f04083a75ab
 S
 #src/MediumQuestions/decodeString.js,7\c\7c31426bc88d061b504c97c47ba7c3b9708a37c7
+H
+src/MediumQ_Redo/day1.js,e\b\eb95fb9d81d9bc8773654e2adb43d1e7b6c8573e
+H
+src/MediumQ_Redo/day2.js,e\6\e6de026d1f9ede4c40b7e3c275c34975629b3c7f
