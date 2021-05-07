@@ -3,27 +3,18 @@
  * @param {string} t
  * @return {boolean}
  */
-var isAnagram = function(s, t) {
-    if(s.length !== t.length){
-        return false;
-    }
-    const createMap = (s) => {
-        let map = new Map();
-        for(sub_s in s){
-            if (map.has(s[sub_s])){
-                map.set(s[sub_s],map.get(s[sub_s]) + 1)
-            }else{
-                map.set(s[sub_s],1)
-            }
-        }
-        return map
-    }
-    let mapAsc_s = new Map([...createMap(s).entries()].sort());
-    let mapAsc_t = new Map([...createMap(t).entries()].sort());
-    console.log("reacheds")
-    console.log(mapAsc_s)
-    console.log(mapAsc_t.entries() === mapAsc_s.entries())
-    return false;
-};
+var isAnagram = function (s, t) {
+  let map = {}
 
-isAnagram("anagram", "nagaram")
+  for (let c of s) {
+    map[c] = map[c] + 1 || 1
+  }
+
+  for (const c of t) {
+    if (!map[c]) return false
+    map[c]--
+    if (map[c] === 0) delete map[c]
+  }
+
+  return [...Object.keys(map)].length === 0
+}
