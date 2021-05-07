@@ -1,19 +1,11 @@
 var maxSubArray = (nums) =>{
-	let max = -Number.MAX_VALUE
-
-	let sum = 0;
-
-	for (var i = 0; i < nums.length -1; i++) {
-		sum += nums[i]
-		if(sum > max){
-			max = sum
-		}
-		if(sum < 0){
-			sum = 0
-		}
-	}
-
-
-
-	return max
+    let maxSum = nums[0];
+    let tempSum = nums[0];
+    
+    for (let i = 1; i < nums.length; i++) {
+        tempSum = Math.max(nums[i], tempSum + nums[i]);
+        maxSum = Math.max(tempSum, maxSum);
+    };
+	//return the max sum
+  return maxSum;
 }
