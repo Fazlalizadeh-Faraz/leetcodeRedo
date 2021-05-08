@@ -1,12 +1,25 @@
+var longestCommonPrefix = function (arr) {
+  if (!arr.length) return ''
+  if (arr.length == 1) return arr[0]
 
+  var longestStr = arr[0]
+  var length = longestStr.length
 
-var longestCommonPrefix = function(strs) {
-    if(!strs.length) return '';
-    
-    for(let i = 0; i < strs[0].length; i++) {
-        for(let s of strs) {
-            if(s[i] !== strs[0][i]) return s.slice(0, i);
+  while (length > 0) {
+    // looping the other words
+    for (var i = 1; i < arr.length; i++) {
+      if (arr[i].substr(0, length) != longestStr) {
+        break
+      } else {
+        if (i == arr.length - 1) {
+          return longestStr.substr(0, length)
         }
+      }
     }
-    return strs[0];
-};
+
+    length--
+    longestStr = longestStr.substr(0, length)
+  }
+
+  return ''
+}
