@@ -6,6 +6,7 @@ const isHappy = (n) => {
     map[n] = true
 
     num = 0
+    // we squaring each digit and adding
     while (n > 0) {
       num += (n % 10) * (n % 10)
       n = Math.floor(n / 10)
