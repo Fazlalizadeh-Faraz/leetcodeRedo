@@ -7,6 +7,7 @@ var plsuOne = (digits) => {
       digits[i] = 0
     }
   }
+  //kind of edge case where all the numbers are 9s
   digits.unshift(1)
   return digits
 }

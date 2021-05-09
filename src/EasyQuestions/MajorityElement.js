@@ -2,6 +2,7 @@
  * @param {number[]} nums
  * @return {number}
  */
+/*  we are assuming that majority exist */
 var majorityElement = function (nums) {
   var obj = {}
 

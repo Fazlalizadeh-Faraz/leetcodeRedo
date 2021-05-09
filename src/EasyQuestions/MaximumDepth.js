@@ -10,13 +10,14 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var maxDepth = function(root) {
-    const recurDep = (dep, node)=>{
-		if(node == null){
-            return dep
-		}
-        dep++
-		return Math.max(recurDep(dep, node.left), recurDep(dep, node.right))
-	}
-    return recurDep(0, root)
-};
+var maxDepth = function (root) {
+  const recurDep = (dep, node) => {
+    // base case
+    if (node == null) {
+      return dep
+    }
+    dep++
+    return Math.max(recurDep(dep, node.left), recurDep(dep, node.right))
+  }
+  return recurDep(0, root)
+}

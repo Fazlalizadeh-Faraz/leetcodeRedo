@@ -4,7 +4,9 @@ var longestCommonPrefix = function (arr) {
 
   var longestStr = arr[0]
   var length = longestStr.length
-
+  /* the idea is to start from the full word and
+  reduce down to smaller sections of the word
+   */
   while (length > 0) {
     // looping the other words
     for (var i = 1; i < arr.length; i++) {
