@@ -1,38 +1,26 @@
-var addTwoNumber = function (l1, l2) {
-    let head = null,
-        curr = null,
-        sum = 0,
-        carry = 0,
-        num,
-        node = null;
+var addTwoNumbers = function (l1, l2) {
+  // make sure both exist
+  if (!l1 && !l2) return null
+  if (!l1) return l2
+  if (!l2) return l1
 
-    while(l1 || l2) {
-        sum = 0;
-        if(l1) {
-            sum += l1.val;
-            l1 = l1.next;
-        }
-        if(l2) {
-            sum += l2.val;
-            l2 = l2.next;
-        }
-        sum += carry;
-        num = parseInt(sum%10);
-        carry = parseInt(sum/10);
+  let result = new ListNode()
+  const head = result
+  let carry = 0
 
-        node = new ListNode(num);
-        if(!head) {
-            head = node;
-        }
-        if(curr) {
-            curr.next = node;
-        }
-        curr = node;
-    }
-    if(carry) {
-        node = new ListNode(carry);
-        curr.next = node;
-        curr = node;
-    }
-    return head;
+  while (l1 || l2 || carry) {
+    let sum = (l1 ? l1.val : 0) + (l2 ? l2.val : 0) + carry
+    carry = parseInt(sum / 10)
+    sum = sum % 10
+
+    result.val = sum
+
+    l1 = l1 ? l1.next : null
+    l2 = l2 ? l2.next : null
+
+    result.next = l1 || l2 || carry ? new ListNode() : null
+    result = result.next
+  }
+
+  return head
 }

@@ -18,3 +18,5 @@ var merge = (nums1, m, nums2, n) => {
     }
   }
 }
+
+// we can do the above with pushing 0s to the array?

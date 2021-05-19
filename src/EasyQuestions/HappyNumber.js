@@ -1,7 +1,7 @@
 const isHappy = (n) => {
   let map = {}
   let num
-
+  // allows to find if its repeating or not
   while (!map[n]) {
     map[n] = true
 
